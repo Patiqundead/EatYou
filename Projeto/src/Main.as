@@ -1,5 +1,4 @@
-package
-{
+package{
 	import org.flixel.FlxGame;
 	
 	/**
@@ -7,14 +6,14 @@ package
 	 * @author Patrick de Bastiani
 	 */
 	
-	[SWF(width = "640", height = "480", backgroundColor = "#FFFFFF")]
+	[SWF(width = Constantes.TAM_TELA_X, height = Constantes.TAM_TELA_Y, backgroundColor = "#FFFFFF")]
 	[Frame(factoryClass = "Preloader")]
-	public class Main extends FlxGame
-	{
-		public function Main()
-		{
+	public class Main extends FlxGame {
+		
+		public function Main() {
+			
 			//rever parametro por parametro e criar a classe das constantes
-			super(640, 480, MenuState, 1);
+			super(Constantes.TAM_TELA_X, Constantes.TAM_TELA_Y, MenuState, 1);
 			forceDebugger = true;
 		}
 	}	
