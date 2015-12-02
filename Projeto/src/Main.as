@@ -6,7 +6,7 @@ package{
 	 * @author Patrick de Bastiani
 	 */
 	
-	[SWF(width = Constantes.TAM_TELA_X, height = Constantes.TAM_TELA_Y, backgroundColor = "#FFFFFF")]
+	[SWF(width = Constantes.TAM_TELA_X, height = Constantes.TAM_TELA_Y, backgroundColor = "#000000")]
 	[Frame(factoryClass = "Preloader")]
 	public class Main extends FlxGame {
 		

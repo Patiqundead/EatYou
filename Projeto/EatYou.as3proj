@@ -6,12 +6,12 @@
     <movie input="" />
     <movie path="bin\EatYou.swf" />
     <movie fps="30" />
-    <movie width="800" />
-    <movie height="600" />
-    <movie version="14" />
+    <movie width="1000" />
+    <movie height="750" />
+    <movie version="18" />
     <movie minorVersion="0" />
     <movie platform="Flash Player" />
-    <movie background="#FFFFFF" />
+    <movie background="#C0C0C0" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -86,7 +86,7 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Default" />
+    <option testMovie="NewTab" />
     <option testMovieCommand="" />
   </options>
   <!-- Plugin storage -->
