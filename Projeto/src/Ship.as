@@ -40,7 +40,7 @@ package
 		
 		public function Ship(theOwner :String, theX :Number, theY :Number, theColor :uint, theName :String) {
 			super(theX, theY);
-			loadGraphic(Assets.SHIPS, true, false, 20, 30, true);
+			loadGraphic(Assets.SHIPS, true, true, 20, 30, true);
 			
 			mOwner 			= theOwner;
 			mColor 			= theColor;
@@ -50,6 +50,9 @@ package
 			mName.alignment	= "center";
 			frame 			= 0;
 			
+			offset.x = 0;
+			offset.y = 2;
+			
 			addAnimation("idle", [0], 0, false);
 			addAnimation("walk", [0, 1, 0, 2], 10, true);
 			addAnimation("jump", [1], 0, false);
@@ -58,13 +61,13 @@ package
 				FlxG.addPlugin(new FlxControl);
 			}
 			
+			//retirado do nutmeg e trabalho de pesquisa
 			FlxControl.create(this, FlxControlHandler.MOVEMENT_ACCELERATES, FlxControlHandler.STOPPING_DECELERATES, 1, true, false);
-			
 			FlxControl.player1.setCursorControl(false, false, true, true);
-			FlxControl.player1.setJumpButton("SPACE", FlxControlHandler.KEYMODE_PRESSED, 100, FlxObject.FLOOR, 250, 200);
-			FlxControl.player1.setBounds(1, 1, Constants.GAME_ORG_WIDTH, Constants.GAME_ORG_HEIGHT);
-			FlxControl.player1.setMovementSpeed(100, 0, 100, 100, 100, 0);
-			FlxControl.player1.setGravity(0, 100);
+			FlxControl.player1.setJumpButton("SPACE", FlxControlHandler.KEYMODE_PRESSED, 200, FlxObject.FLOOR, 250, 200);
+			FlxControl.player1.setMovementSpeed(400, 0, 100, 200, 400, 0);
+			FlxControl.player1.setGravity(0, 400);
+			
 			
 			if(theColor != 0) {
 				color = theColor;

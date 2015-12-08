@@ -66,6 +66,7 @@ package
 			super.update();
 			
 			mMultiplayer.update();
+			FlxG.collide(mShips, mLevel);
 			
 			if (mPlayer != null) {
 				FlxG.collide(mPlayer, mLevel);
