@@ -30,7 +30,7 @@ package
 	import flash.system.Capabilities;
 	import org.flixel.*;
 
-	[SWF(width="600", height="480", backgroundColor="#000000")]
+	[SWF(width="600", height="480", backgroundColor="#CFCFCF")]
 	[Frame(factoryClass="Preloader")]
 	public class Main extends FlxGame 
 	{

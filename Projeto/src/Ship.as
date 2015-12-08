@@ -42,7 +42,6 @@ package
 			super(theX, theY);
 			loadGraphic(Assets.SHIPS, true, false, 20, 30, true);
 			
-			//mDirection 		= new FlxPoint(Constants.PLAYER_SPEED, Constants.PLAYER_SPEED);
 			mOwner 			= theOwner;
 			mColor 			= theColor;
 			mRespawnCount	= Constants.PLAYER_RESPAWN;
@@ -64,14 +63,13 @@ package
 			FlxControl.player1.setCursorControl(false, false, true, true);
 			FlxControl.player1.setJumpButton("SPACE", FlxControlHandler.KEYMODE_PRESSED, 100, FlxObject.FLOOR, 250, 200);
 			FlxControl.player1.setBounds(1, 1, Constants.GAME_ORG_WIDTH, Constants.GAME_ORG_HEIGHT);
-			FlxControl.player1.setMovementSpeed(150, 0, 200, 200, 100, 0);
+			FlxControl.player1.setMovementSpeed(100, 0, 100, 100, 100, 0);
 			FlxControl.player1.setGravity(0, 100);
 			
 			if(theColor != 0) {
 				color = theColor;
 			}
 			
-			adjustRotationAccordingDirection();
 		}
 		
 		override public function update():void {
@@ -104,7 +102,7 @@ package
 					play("idle");
 				}
 			}
-			else if (velocity.y < 0)
+			else //if (velocity.y < 0)
 			{
 				play("jump");
 			}
@@ -119,28 +117,10 @@ package
 			return owner == (FlxG.state as PlayState).player.owner;
 		}
 		
-		public function rotate(theAngle :Number) :void {
-			var aX :Number = mDirection.x;
-			var aY :Number = mDirection.y;
-				
-			mDirection.x = aX * Math.cos(theAngle) - aY * Math.sin(theAngle);
-			mDirection.y = aX * Math.sin(theAngle) + aY * Math.cos(theAngle);
-				
-			adjustRotationAccordingDirection();
-		}
-		
 		public function respawn() :void {
 			reset(x, y);
 			visible = true;
 			flicker(Constants.PLAYER_IMMUNIZATION);
-		}
-		
-		private function adjustRotationAccordingDirection() :void {
-			//angle = 90 + (180 * getAngle(mDirection))/Math.PI;
-		}
-		
-		public function getAngle(theVector :FlxPoint) :Number {
-			return Math.atan2(theVector.y, theVector.x);
 		}
 		
 		override public function kill():void {

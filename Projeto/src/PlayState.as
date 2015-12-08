@@ -33,6 +33,7 @@ package
 		private var mPlayer 			:Ship;
 		private var mShips				:FlxGroup;
 		private var mBackground			:Background;
+		private var mLevel              :Level;
 		private var mHud				:Hud;
 		private var mMultiplayer		:Multiplayer;
 	
@@ -42,12 +43,14 @@ package
 			mHud			= new Hud();
 			mShips			= new FlxGroup();
 			mBackground		= new Background();
+			mLevel          = new Level();
 			mMultiplayer	= new Multiplayer();
 			
 			FlxG.worldBounds = new FlxRect(0, 0, Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT);
 			FlxG.camera.setBounds(0, 0, FlxG.worldBounds.width, FlxG.worldBounds.height);
 			
 			add(mBackground);
+			add(mLevel);
 			add(mShips);
 			add(mHud);
 			
@@ -65,44 +68,14 @@ package
 			mMultiplayer.update();
 			
 			if (mPlayer != null) {
-				FlxG.collide(mPlayer, mBackground);
+				FlxG.collide(mPlayer, mLevel);
 				updatePlayerInput();
 			}
 		}
 		
 		public function updatePlayerInput():void {
 			if (!mPlayer.alive) return;
-			
-			
-			if ((FlxG.keys.pressed("SPACE") || FlxG.keys.pressed("B"))) {
-
-			}
-			
-			if (FlxG.keys.pressed("UP") || FlxG.keys.pressed("DOWN") || FlxG.keys.pressed("W") || FlxG.keys.pressed("S")) {
-				//var aSign :Number = FlxG.keys.pressed("DOWN") || FlxG.keys.pressed("S") ? -1 : 1;
-				
-				mPlayer.x += mPlayer.direction.x;// * aSign;
-				mPlayer.y += mPlayer.direction.y;// * aSign;
-			}
-			
-			if (FlxG.keys.pressed("RIGHT") || FlxG.keys.pressed("LEFT") || FlxG.keys.pressed("A") || FlxG.keys.pressed("D")) {
-				//mPlayer.rotate(FlxG.keys.pressed("RIGHT") || FlxG.keys.pressed("D") ? Constants.PLAYER_ROTATION : -Constants.PLAYER_ROTATION);
-			}
 		}
-		
-		/*
-		public function shoot(theShip :Ship, theBulletType :Class, theShouldSendMultiplayer :Boolean = false) :void {
-			
-			if (aBullet) {
-				aBullet.goFrom(theShip);
-				
-				if (theShouldSendMultiplayer) {
-					mMultiplayer.sendShot(theShip, theBulletType);
-				}
-				
-			}
-		}
-		*/
 		
 		override public function destroy():void {
 			super.destroy();

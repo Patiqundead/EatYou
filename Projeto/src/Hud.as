@@ -33,7 +33,6 @@ package
 		private var mHeadline 	:FlxText;
 		private var mSub 		:FlxText;
 		private var mTotal 		:FlxText;
-		private var mSound 		:FlxButton;
 		
 		public function Hud() {
 			mHeadline = new FlxText(0, FlxG.height / 2 - 50, FlxG.width, "");
@@ -53,21 +52,11 @@ package
 			mTotal.scrollFactor.x = 0;
 			mTotal.scrollFactor.y = 0;
 			
-			mSound = new FlxButton(5, 5, "Sound: ON", toggleSound);
-			mSound.scrollFactor.x = 0;
-			mSound.scrollFactor.y = 0;
-
 			hideMessages();
 			
 			add(mHeadline);
 			add(mSub);
 			add(mTotal);
-			add(mSound);
-		}
-		
-		private function toggleSound() :void {
-			FlxG.mute = !FlxG.mute;
-			mSound.label.text = "Sound: " + (FlxG.mute ? "OFF" : "ON");
 		}
 		
 		public function showMessage(theHeadline :String, theSub :String, theSubFlickerTime :Number = 0.1) :void {
