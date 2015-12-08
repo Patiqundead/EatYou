@@ -24,28 +24,40 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package 
+package  
 {
-	import flash.events.Event;
-	import flash.system.Capabilities;
 	import org.flixel.*;
 
-	[SWF(width="600", height="480", backgroundColor="#000000")]
-	[Frame(factoryClass="Preloader")]
-	public class Main extends FlxGame 
+	public class ActivationState extends FlxState
 	{
-		public function Main(){
-			super(Constants.BUFFER_WIDTH, Constants.BUFFER_HEIGHT, ActivationState, Constants.BUFFER_ZOOM);
+		private var mHeadline 	:FlxText;
+		private var mSub 		:FlxText;
+		
+		public function ActivationState() {
+			mHeadline = new FlxText(0, FlxG.height / 2 - 50, FlxG.width, "Waiting");
+			mHeadline.alignment = "center";
+			mHeadline.size = 28;
+			mHeadline.scrollFactor.x = 0;
+			mHeadline.scrollFactor.y = 0;
+
+			mSub = new FlxText(0, FlxG.height / 2 - 10, FlxG.width, "Click anywhere or press any key to start the game.");
+			mSub.alignment = "center";
+			mSub.size = 12;
+			mSub.scrollFactor.x = 0;
+			mSub.scrollFactor.y = 0;
 			
-			forceDebugger = true;
-			FlxG.flashFramerate = 30;
-			FlxG.framerate = 30;
+			mSub.flicker(Number.MAX_VALUE);
 			
-			FlxG.mouse.show();
+			add(mHeadline);
+			add(mSub);
 		}
 		
-		override protected function create(theEvent :Event):void {
-            super.create(theEvent);
-        }
+		override public function update():void {
+			super.update();
+			
+			if (FlxG.mouse.pressed() || FlxG.keys.any()) {
+				FlxG.switchState(new PlayState());
+			}
+		}
 	}
 }

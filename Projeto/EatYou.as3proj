@@ -6,9 +6,9 @@
     <movie input="" />
     <movie path="bin\EatYou.swf" />
     <movie fps="30" />
-    <movie width="1000" />
-    <movie height="750" />
-    <movie version="18" />
+    <movie width="800" />
+    <movie height="600" />
+    <movie version="19" />
     <movie minorVersion="0" />
     <movie platform="Flash Player" />
     <movie background="#C0C0C0" />
@@ -86,7 +86,7 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="NewTab" />
+    <option testMovie="Default" />
     <option testMovieCommand="" />
   </options>
   <!-- Plugin storage -->

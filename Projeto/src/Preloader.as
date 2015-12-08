@@ -24,28 +24,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package 
+package  
 {
-	import flash.events.Event;
-	import flash.system.Capabilities;
-	import org.flixel.*;
-
-	[SWF(width="600", height="480", backgroundColor="#000000")]
-	[Frame(factoryClass="Preloader")]
-	public class Main extends FlxGame 
-	{
-		public function Main(){
-			super(Constants.BUFFER_WIDTH, Constants.BUFFER_HEIGHT, ActivationState, Constants.BUFFER_ZOOM);
-			
-			forceDebugger = true;
-			FlxG.flashFramerate = 30;
-			FlxG.framerate = 30;
-			
-			FlxG.mouse.show();
-		}
-		
-		override protected function create(theEvent :Event):void {
-            super.create(theEvent);
+    import org.flixel.system.FlxPreloader;
+ 
+    public class Preloader extends FlxPreloader
+    {
+        public function Preloader() :void {
+            className = "Game";
+            super();
+            minDisplayTime = 2; //Force the preloader to show for a minimum of 3 seconds
         }
-	}
+    }
 }

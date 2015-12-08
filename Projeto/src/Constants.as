@@ -24,28 +24,29 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package 
+package  
 {
-	import flash.events.Event;
-	import flash.system.Capabilities;
-	import org.flixel.*;
+	import org.flixel.FlxG;
 
-	[SWF(width="600", height="480", backgroundColor="#000000")]
-	[Frame(factoryClass="Preloader")]
-	public class Main extends FlxGame 
+	public class Constants 
 	{
-		public function Main(){
-			super(Constants.BUFFER_WIDTH, Constants.BUFFER_HEIGHT, ActivationState, Constants.BUFFER_ZOOM);
-			
-			forceDebugger = true;
-			FlxG.flashFramerate = 30;
-			FlxG.framerate = 30;
-			
-			FlxG.mouse.show();
-		}
+		public static const GAME_ORG_WIDTH							:uint = 600;
+		public static const GAME_ORG_HEIGHT							:uint = 480;
 		
-		override protected function create(theEvent :Event):void {
-            super.create(theEvent);
-        }
+		public static const BUFFER_WIDTH 							:int = 600;
+		public static const BUFFER_HEIGHT 							:int = 480;
+		public static const BUFFER_ZOOM 							:Number = 1;
+		
+		public static const WORLD_WIDTH 							:Number = 1000;
+		public static const WORLD_HEIGHT 							:Number = 1000;
+		
+		
+		public static const PLAYER_SPEED 							:Number = 2;
+		public static const PLAYER_ROTATION 						:Number = 0.03;
+		public static const PLAYER_SHOT_LAG							:Number = 0.5;
+		public static const PLAYER_RESPAWN							:Number = 5; // in seconds
+		public static const PLAYER_IMMUNIZATION						:Number = 3; // in seconds
+		
+		public static const GAME_OVER_COUNT							:Number = 5;
 	}
 }
